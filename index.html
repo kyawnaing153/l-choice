@@ -1,1259 +1,2201 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
     <head>
-
         <meta charset="UTF-8">
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <title>Learners' Choice - Online Courses</title>
 
-
-
         <!-- Bootstrap 5 CSS -->
-
         <link
-
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-
             rel="stylesheet">
-
         <!-- Bootstrap Icons -->
-
         <link rel="stylesheet"
-
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-
         <!-- Custom CSS -->
-
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
         <style>
-
         :root {
-
             --primary-teal: #008080;
-
             --dark-teal: #006666;
-
             --light-teal: #20c997;
-
             --accent-teal: #e0f2f1;
-
             --text-dark: #212529;
-
             --text-light: #6c757d;
-
         }
-
         
-
         body {
-
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
             color: var(--text-dark);
-
             background-color: #f8f9fa;
-
         }
-
         
-
         /* Custom Navbar */
-
         .navbar {
-
             background-color: white;
-
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
             padding: 15px 0;
-
         }
-
         
-
         /*About us vision-mission */
-
         .vision-mission {
-
             display: flex;
-
             gap: 40px;
-
             margin-top: 60px;
-
         }
-
         
-
         .vision, .mission {
-
             flex: 1;
-
             background: var(--white);
-
             border-radius: 10px;
-
             padding: 40px;
-
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-
             transition: transform 0.3s ease;
-
         }
-
         
-
         .vision:hover, .mission:hover {
-
             transform: translateY(-10px);
-
         }
-
         
-
         .vision h3, .mission h3 {
-
             font-size: 2rem;
-
             margin-bottom: 25px;
-
             color: var(--primary);
-
             display: flex;
-
             align-items: center;
-
         }
-
         
-
         .vision h3 i, .mission h3 i {
-
             margin-right: 15px;
-
             color: var(--secondary);
-
             font-size: 2.2rem;
-
         }
-
         
-
         .vision ul, .mission ul {
-
             list-style: none;
-
             margin-top: 20px;
-
         }
-
         
-
         .vision li, .mission li {
-
             margin-bottom: 15px;
-
             padding-left: 30px;
-
             position: relative;
-
             font-size: 1.1rem;
-
         }
-
         
-
         .vision li::before, .mission li::before {
-
             content: "\f00c";
-
             font-family: "Font Awesome 6 Free";
-
             font-weight: 900;
-
             position: absolute;
-
             left: 0;
-
             color: var(--secondary);
-
         }
-
-
 
         /*About us features */
-
         .features {
-
             display: grid;
-
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
             gap: 30px;
-
             margin-top: 60px;
-
         }
-
         
-
         .feature-card {
-
             background: var(--white);
-
             border-radius: 10px;
-
             padding: 30px;
-
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-
             transition: all 0.3s ease;
-
             border-top: 4px solid var(--secondary);
-
         }
-
         
-
         .feature-card:hover {
-
             transform: translateY(-8px);
-
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-
         }
-
         
-
         .feature-icon {
-
             font-size: 3rem;
-
             color: var(--secondary);
-
             margin-bottom: 20px;
-
         }
-
         
-
         .feature-card h3 {
-
             font-size: 1.5rem;
-
             margin-bottom: 15px;
-
             color: var(--primary);
-
         }
-
         
-
         .feature-card p {
-
             color: var(--dark);
-
             font-size: 1rem;
-
         }
-
-
 
         .navbar-brand {
-
             font-weight: 700;
-
             font-size: 1.8rem;
-
             color: var(--primary-teal) !important;
-
             display: flex;
-
             align-items: center;
-
         }
-
         
-
         .navbar-brand i {
-
             margin-right: 10px;
-
             color: var(--light-teal);
-
         }
-
         
-
         .navbar-nav .nav-link {
-
             color: var(--text-dark) !important;
-
             font-weight: 500;
-
             margin: 0 10px;
-
             transition: color 0.3s;
-
         }
-
         
-
         .navbar-nav .nav-link:hover {
-
             color: var(--primary-teal) !important;
-
         }
-
         
-
         .btn-outline-teal {
-
             color: var(--primary-teal);
-
             border-color: var(--primary-teal);
-
         }
-
         
-
         .btn-outline-teal:hover {
-
             background-color: var(--primary-teal);
-
             color: white;
-
         }
-
         
-
         .btn-teal {
-
             background-color: var(--primary-teal);
-
             color: white;
-
             border-color: var(--primary-teal);
-
         }
-
         
-
         .btn-teal:hover {
-
             background-color: var(--dark-teal);
-
             border-color: var(--dark-teal);
-
         }
-
         
-
         /* Hero Section */
-
         .hero {
-
             background: linear-gradient(135deg, var(--primary-teal), var(--dark-teal));
-
             color: white;
-
             padding: 100px 0;
-
             position: relative;
-
             overflow: hidden;
-
         }
-
         
-
         .hero::before {
-
             content: '';
-
             position: absolute;
-
             top: 0;
-
             left: 0;
-
             right: 0;
-
             bottom: 0;
-
             background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQPSIxMDAlIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
-
             opacity: 0.1;
-
         }
-
         
-
         .hero h1 {
-
             font-size: 3rem;
-
             font-weight: 700;
-
             margin-bottom: 20px;
-
         }
-
         
-
         .hero p {
-
             font-size: 1.2rem;
-
             max-width: 700px;
-
             margin: 0 auto 30px;
-
         }
-
         
-
         .search-box {
-
             max-width: 600px;
-
             margin: 0 auto;
-
             position: relative;
-
         }
-
         
-
         .search-box .form-control {
-
             padding: 15px 50px 15px 20px;
-
             border-radius: 50px;
-
             border: none;
-
             font-size: 1rem;
-
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-
         }
-
         
-
         .search-box button {
-
             position: absolute;
-
             right: 5px;
-
             top: 50%;
-
             transform: translateY(-50%);
-
             background-color: var(--light-teal);
-
             border: none;
-
             border-radius: 50%;
-
             width: 40px;
-
             height: 40px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
         }
-
         
-
         /* Section Styles */
-
         .section {
-
             padding: 80px 0;
-
         }
-
         
-
         .section-title {
-
             text-align: center;
-
             margin-bottom: 50px;
-
         }
-
         
-
         .section-title h2 {
-
             font-size: 2.5rem;
-
             font-weight: 700;
-
             color: var(--primary-teal);
-
             margin-bottom: 15px;
-
         }
-
         
-
         .section-title p {
-
             max-width: 700px;
-
             margin: 0 auto;
-
             color: var(--text-light);
-
         }
-
         
-
         /* Category Cards */
-
         .category-card {
-
             background-color: rgb(255, 255, 255);
-
             border-radius: 10px;
-
             overflow: hidden;
-
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-
             transition: transform 0.3s, box-shadow 0.3s;
-
             height: 100%;
-
             cursor: pointer;
-
         }
-
         
-
         .category-card:hover {
-
             transform: translateY(-10px);
-
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-
         }
-
         
-
         .category-img {
-
             height: 200px;
-
             background-size: cover;
-
             background-position: center;
-
             position: relative;
-
         }
-
         
-
         .category-img::after {
-
             content: '';
-
             position: absolute;
-
             top: 0;
-
             left: 0;
-
             right: 0;
-
             bottom: 0;
-
             background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
-
             background-image: url('https://www.google.com/search/about-this-image?img=H4sIAAAAAAAA_-MS4WhrO_Fs9ZOD-_wEdt-b9Gr_0zMHnACY_941FgAAAA%3D%3D&q=https:%2F%2Fiticollege.edu%2Fblog%2Ffuture-information-technology%2F&ctx=iv&hl=en-MM&sa=X&ved=0CA4Qg4ILahcKEwjo8ODd8ryPAxUAAAAAHQAAAAAQIQ');
-
         }
-
         
-
         .category-content {
-
             padding: 25px;
-
         }
-
         
-
         .category-content h3 {
-
             font-size: 1.5rem;
-
             font-weight: 700;
-
             margin-bottom: 15px;
-
             color: var(--primary-teal);
-
         }
-
         
-
         .category-content p {
-
             color: var(--text-light);
-
             margin-bottom: 20px;
-
         }
-
         
-
         /* Course Cards */
-
         .course-card {
-
             background-color: white;
-
             border-radius: 10px;
-
             overflow: hidden;
-
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-
             transition: transform 0.3s;
-
             height: 100%;
-
         }
-
         
-
         .course-card:hover {
-
             transform: translateY(-5px);
-
         }
-
         
-
         .course-img {
-
             height: 180px;
-
             background-size: cover;
-
             background-position: center;
-
         }
-
         
-
         .course-content {
-
             padding: 20px;
-
         }
-
         
-
         .course-content h3 {
-
             font-size: 1.2rem;
-
             font-weight: 600;
-
             margin-bottom: 10px;
-
             color: var(--text-dark);
-
         }
-
         
-
         .course-meta {
-
             display: flex;
-
             justify-content: space-between;
-
             margin-bottom: 15px;
-
             font-size: 0.9rem;
-
             color: var(--text-light);
-
         }
-
         
-
         .course-rating {
-
             color: #ffc107;
-
         }
-
         
-
         .course-price {
-
             font-weight: 700;
-
             color: var(--primary-teal);
-
             font-size: 1.2rem;
-
         }
-
         
-
         /* Category Info Box */
-
         .category-info {
-
             background-color: white;
-
             border-radius: 10px;
-
             padding: 30px;
-
             margin-bottom: 40px;
-
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-
         }
-
         
-
         .category-info h3 {
-
             color: var(--primary-teal);
-
             margin-bottom: 15px;
-
             font-weight: 700;
-
         }
-
         
-
         /* Footer */
-
         .footer {
-
   background-color: teal;
-
   color: #fff;
-
   padding: 40px 20px 20px;
-
   font-family: Arial, sans-serif;
-
 }
-
-
 
 .footer-container {
-
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
   gap: 30px;
-
   max-width: 1200px;
-
   margin: auto;
-
 }
-
-
 
 .footer-column h3 {
-
   font-size: 18px;
-
   margin-bottom: 15px;
-
   color: #ffcc00;
-
 }
-
-
 
 .footer-column ul {
-
   list-style: none;
-
   padding: 0;
-
 }
-
-
 
 .footer-column ul li {
-
   margin-bottom: 10px;
-
 }
-
-
 
 .footer-column ul li a {
-
   color: #ddd;
-
   text-decoration: none;
-
   transition: color 0.3s ease;
-
 }
-
-
 
 .footer-column ul li a:hover {
-
   color: #ffcc00;
-
 }
-
-
 
 .footer-column p {
-
   margin: 5px 0;
-
 }
-
-
 
 .social-icons a {
-
   margin-right: 10px;
-
   display: inline-block;
-
 }
-
-
 
 .social-icons img {
-
   width: 24px;
-
   height: 24px;
-
   filter: brightness(0) invert(1);
-
   transition: 0.3s;
-
 }
-
-
 
 .social-icons img:hover {
-
   filter: brightness(0) invert(1) sepia(100%) saturate(200%) hue-rotate(20deg);
-
 }
-
-
 
 /* Footer Bottom */
-
 .footer-bottom {
-
   border-top: 1px solid #333;
-
   text-align: center;
-
   padding-top: 15px;
-
   margin-top: 20px;
-
   font-size: 14px;
-
   color: #ffcc00;
-
 }
-
         
-
         .social-links {
-
             display: flex;
-
             gap: 15px;
-
             margin-top: 20px;
-
         }
-
         
-
         .social-links a {
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             width: 40px;
-
             height: 40px;
-
             background-color: rgba(255, 255, 255, 0.1);
-
             border-radius: 50%;
-
             color: teal;
-
             transition: background-color 0.3s;
-
         }
-
         
-
         .social-links a:hover {
-
             background-color: var(--light-teal);
-
         }
-
         
-
         .copyright {
-
             text-align: center;
-
             padding-top: 20px;
-
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-
             font-size: 0.9rem;
-
             color: #adb5bd;
-
             margin-top: 50px;
-
         }
-
         
-
         /* Page Sections (hidden by default) */
-
         .page-section {
-
             display: none;
-
         }
-
         
-
         .page-section.active {
-
             display: block;
-
         }
-
-
 
         /* Search Results Section */
-
         #search-results {
-
             min-height: 60vh;
-
         }
-
         
-
         /* Form Styles */
-
         .form-control:focus {
-
             border-color: var(--light-teal);
-
             box-shadow: 0 0 0 0.25rem rgba(32, 201, 151, 0.25);
-
         }
-
         
-
         .btn-primary {
-
             background-color: var(--primary-teal);
-
             border-color: var(--primary-teal);
-
         }
-
         
-
         .btn-primary:hover {
-
             background-color: var(--dark-teal);
-
             border-color: var(--dark-teal);
-
         }
-
         
-
         /* Responsive */
-
         @media (max-width: 768px) {
-
             .hero h1 {
-
                 font-size: 2.2rem;
-
             }
-
             
-
             .section {
-
                 padding: 60px 0;
-
             }
-
             
-
             .section-title h2 {
-
                 font-size: 2rem;
-
             }
-
         }
-
     </style>
-
     </head>
-
     <body>
-
         <!-- Navigation -->
-
         <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-
             <div class="container">
-
                 <a class="navbar-brand" href="#" onclick="showSection('home')">
-
                     <i class="bi bi-mortarboard-fill"></i>
-
                     Learners' Choice
-
                 </a>
-
                 <button class="navbar-toggler" type="button"
-
                     data-bs-toggle="collapse" data-bs-target="#navbarNav">
-
                     <span class="navbar-toggler-icon"></span>
-
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarNav">
-
                     <ul class="navbar-nav ms-auto">
-
                         <li class="nav-item">
-
                             <a class="nav-link" href="#"
-
                                 onclick="showSection('home')">Home</a>
-
                         </li>
-
                         <li class="nav-item">
-
                             <a class="nav-link" href="#"
-
                                 onclick="showSection('categories')">Course</a>
-
                         </li>
-
                         <li class="nav-item">
-
                             <a class="nav-link" href="#"
-
                                 onclick="showSection('about')">About Us</a>
-
                         </li>
-
                         <li class="nav-item">
-
                             <a class="nav-link" href="#"
-
                                 onclick="showSection('contact')">Contact Us</a>
-
                         </li>
-
                         <li class="nav-item ms-2">
-
                             <a class="btn btn-outline-teal" href="#"
-
                                 data-bs-toggle="modal"
-
                                 data-bs-target="#loginModal">Login</a>
-
                         </li>
-
                         <li class="nav-item ms-2">
-
                             <a class="btn btn-teal" href="#"
-
                                 data-bs-toggle="modal"
-
                                 data-bs-target="#signupModal">Sign Up</a>
-
                         </li>
-
                     </ul>
-
                 </div>
-
             </div>
-
         </nav>
 
-
-
         <!-- Main Content -->
-
         <main>
-
             <!-- Home Section -->
-
             <section id="home" class="page-section active">
-
                 <!-- Hero Section -->
-
                 <section class="hero">
-
                     <div class="container position-relative">
-
                         <div class="text-center">
-
                             <h1>Expand Your Knowledge with Learners' Choice</h1>
-
                             <p>Discover thousands of courses in IT, Business,
-
                                 and Languages from expert instructors around the
-
                                 world.</p>
-
                             <div class="search-box">
-
                                 <form id="search-form" onsubmit="handleSearch(event)">
-
                                     <input type="text" class="form-control" id="search-input"
-
                                         placeholder="Search for courses, topics, or instructors...">
-
                                     <button class="btn" type="submit">
-
                                         <i class="bi bi-search"></i>
-
                                     </button>
-
                                 </form>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </section>
 
-
-
                 <!-- Featured Categories -->
-
                 <section class="section">
-
                     <div class="container">
-
                         <div class="section-title">
-
                             <h2>Popular Categories</h2>
-
                             <p>Explore our most popular course categories and
-
                                 start learning today</p>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="category-card"
+                                    onclick="showSection('it')">
+                                    <div class="category-img"
+                                        style="background-image: url('Information-Technology-2.jpeg');">
 
+                                    </div>
+                                    <div class="category-content">
+                                        <h3>Information Technology</h3>
+                                        <p>Master programming, cybersecurity,
+                                            cloud computing, and more with our
+                                            IT courses.</p>
+                                        <a href="#"
+                                            class="btn btn-teal w-100">Explore
+                                            IT Courses</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="category-card"
+                                    onclick="showSection('business')">
+                                    <div class="category-img"
+                                        style="background-image: url('business.avif');"></div>
+                                    <div class="category-content">
+                                        <h3>Business</h3>
+                                        <p>Develop leadership, marketing,
+                                            finance, and entrepreneurship skills
+                                            with our business courses.</p>
+                                        <a href="#"
+                                            class="btn btn-teal w-100">Explore
+                                            Business Courses</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="category-card"
+                                    onclick="showSection('language')">
+                                    <div class="category-img"
+                                        style="background-image: url('flags.jpg');"></div>
+                                    <div class="category-content">
+                                        <h3>Languages</h3>
+                                        <p>Learn new languages or improve your
+                                            communication skills with our
+                                            language courses.</p>
+                                        <a href="#"
+                                            class="btn btn-teal w-100">Explore
+                                            Language Courses</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Featured Courses -->
+                <section class="section" style="background-color: #e0f2f1;">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Featured Courses</h2>
+                            <p>Check out our most popular courses this month</p>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="course-card">
+                                    <div class="course-img"
+                                        style="background-image: url('web.jpg');"></div>
+                                    <div class="course-content">
+                                        <h3>Complete Web Development
+                                            Bootcamp</h3>
+                                        <div class="course-meta">
+                                            <span><i class="bi bi-clock"></i> 42
+                                                hours</span>
+                                            <span class="course-rating"><i
+                                                    class="bi bi-star-fill"></i>
+                                                4.8</span>
+                                        </div>
+                                        <p>Learn HTML, CSS, JavaScript, React,
+                                            Node, and more in this comprehensive
+                                            course.</p>
+                                        <div class="course-price"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="course-card">
+                                    <div class="course-img"
+                                        style="background-image: url('digital.webp');"></div>
+                                    <div class="course-content">
+                                        <h3>Digital Marketing Masterclass</h3>
+                                        <div class="course-meta">
+                                            <span><i class="bi bi-clock"></i> 28
+                                                hours</span>
+                                            <span class="course-rating"><i
+                                                    class="bi bi-star-fill"></i>
+                                                4.7</span>
+                                        </div>
+                                        <p>Master SEO, social media marketing,
+                                            PPC, and email marketing
+                                            strategies.</p>
+                                        <div class="course-price"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="course-card">
+                                    <div class="course-img"
+                                        style="background-image: url('spanish.jpg');"></div>
+                                    <div class="course-content">
+                                        <h3>Spanish for Beginners</h3>
+                                        <div class="course-meta">
+                                            <span><i class="bi bi-clock"></i> 18
+                                                hours</span>
+                                            <span class="course-rating"><i
+                                                    class="bi bi-star-fill"></i>
+                                                4.9</span>
+                                        </div>
+                                        <p>Start speaking Spanish from day one
+                                            with our interactive lessons.</p>
+                                        <div class="course-price"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Search Results Section -->
+            <section id="search-results" class="page-section section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Search Results</h2>
+                        <p id="search-results-summary">Courses matching your search</p>
+                    </div>
+                    <div class="row g-4" id="search-results-container">
+                        <!-- Search results will be displayed here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section id="categories" class="page-section section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Courses</h2>
+                        <p>Browse our extensive collection of courses by
+                            category</p>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="category-card"
+                                onclick="showSection('it')">
+                                <div class="category-img"
+                                    style="background-image: url('Information-Technology-2.jpeg');"></div>
+                                <div class="category-content">
+                                    <h3>Information Technology</h3>
+                                    <p>Master programming, cybersecurity, cloud
+                                        computing, and more with our IT
+                                        courses.</p>
+                                    <a href="#"
+                                        class="btn btn-teal w-100">Explore IT
+                                        Courses</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="category-card"
+                                onclick="showSection('business')">
+                                <div class="category-img"
+                                    style="background-image: url('business.avif');"></div>
+                                <div class="category-content">
+                                    <h3>Business</h3>
+                                    <p>Develop leadership, marketing, finance,
+                                        and entrepreneurship skills with our
+                                        business courses.</p>
+                                    <a href="#"
+                                        class="btn btn-teal w-100">Explore
+                                        Business Courses</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="category-card"
+                                onclick="showSection('language')">
+                                <div class="category-img"
+                                    style="background-image: url('flags.jpg');"></div>
+                                <div class="category-content">
+                                    <h3>Languages</h3>
+                                    <p>Learn new languages or improve your
+                                        communication skills with our language
+                                        courses.</p>
+                                    <a href="#"
+                                        class="btn btn-teal w-100">Explore
+                                        Language Courses</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4 mt-4">
+                    <div class="col-md-4">
+                            <div class="category-card"
+                                onclick="showSection('beauty')">
+                                <div class="category-img"
+                                    style="background-image: url('beauty.jpg');"></div>
+                                <div class="category-content">
+                                    <h3>Beauty Salon</h3>
+                                    <p>make up,hair dresser,nail arts.</p>
+                                    <a href="#"
+                                        class="btn btn-teal w-100">Explore Beauty Salon</a>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-md-4">
+                            <div class="category-card"
+                                onclick="showSection('handmade')">
+                                <div class="category-img"
+                                    style="background-image: url('handmade.webp');"></div>
+                                <div class="category-content">
+                                    <h3>Handmade</h3>
+                                    <p>Something crafted by human hands with skill, time, and creativity, instead of being mass-produced by machines.</p>
+                                    <a href="#"
+                                        class="btn btn-teal w-100">Explore
+                                        Handmade Courses</a>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-md-4">
+                            <div class="category-card"
+                                onclick="showSection('drawing')">
+                                <div class="category-img"
+                                    style="background-image: url('drawing.jpg');"></div>
+                                <div class="category-content">
+                                    <h3>Drawing</h3>
+                                    <p>The art of making pictures using lines, shapes, and shading to represent ideas, objects, or emotions.</p>
+                                    <a href="#"
+                                        class="btn btn-teal w-100">Explore
+                                        Drawing Courses</a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+            <!-- IT Courses Section -->
+            <section id="it" class="page-section section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Information Technology Courses</h2>
+                        <p>Master the skills needed to excel in today's
+                            tech-driven world</p>
+                    </div>
+
+                    <div class="category-info">
+                        <h3>About IT Learning</h3>
+                        <p>Information Technology is one of the fastest-growing
+                            fields with endless opportunities. Our IT courses
+                            cover everything from basic computer skills to
+                            advanced programming, cybersecurity, cloud
+                            computing, and data science. Whether you're a
+                            beginner looking to start a career in tech or a
+                            professional wanting to upgrade your skills, we have
+                            the right course for you.</p>
+                        <p>Our courses are designed by industry experts and
+                            include hands-on projects, real-world scenarios, and
+                            interactive learning experiences to ensure you gain
+                            practical skills that employers value.</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('web.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Complete Web Development Bootcamp</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 42
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.8</span>
+                                    </div>
+                                    <p>Learn HTML, CSS, JavaScript, React, Node,
+                                        and more in this comprehensive
+                                        course.</p>
+                                    <div class="course-price">400000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('cybersecurity-fundamentals.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Cybersecurity Fundamentals</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 36
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.7</span>
+                                    </div>
+                                    <p>Learn essential cybersecurity concepts,
+                                        tools, and techniques to protect systems
+                                        and data.</p>
+                                    <div class="course-price">300000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('aws.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Cloud Computing with AWS</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 32
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.9</span>
+                                    </div>
+                                    <p>Master Amazon Web Services and become a
+                                        certified cloud solutions architect.</p>
+                                    <div class="course-price">200000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('python copy.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Data Science with Python</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 48
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.8</span>
+                                    </div>
+                                    <p>Learn data analysis, visualization,
+                                        machine learning, and deep learning with
+                                        Python.</p>
+                                    <div class="course-price">120000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Business Courses Section -->
+            <section id="business" class="page-section section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Business Courses</h2>
+                        <p>Develop the skills needed to succeed in today's
+                            competitive business environment</p>
+                    </div>
+
+                    <div class="category-info">
+                        <h3>About Business Learning</h3>
+                        <p>Business skills are essential for career growth and
+                            entrepreneurial success. Our business courses cover
+                            a wide range of topics including leadership,
+                            management, marketing, finance, entrepreneurship,
+                            and more. Whether you're looking to advance in your
+                            current role, start your own business, or switch to
+                            a new career path, our courses provide the knowledge
+                            and practical skills you need.</p>
+                        <p>Learn from industry leaders and successful
+                            entrepreneurs who share their real-world experiences
+                            and strategies for success in the business
+                            world.</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('Digital-Marketing-Masterclass-.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Digital Marketing Masterclass</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 28
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.7</span>
+                                    </div>
+                                    <p>Master SEO, social media marketing, PPC,
+                                        and email marketing strategies.</p>
+                                    <div class="course-price">220000MMk</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('finance.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Financial Management for Non-Financial
+                                        Managers</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 24
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.6</span>
+                                    </div>
+                                    <p>Learn to read financial statements,
+                                        manage budgets, and make informed
+                                        financial decisions.</p>
+                                    <div class="course-price">250000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('inter.webp');"></div>
+                                <div class="course-content">
+                                    <h3>Entrepreneurship: From Idea to
+                                        Launch</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 30
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.8</span>
+                                    </div>
+                                    <p>Learn how to validate your business idea,
+                                        create a business plan, and launch your
+                                        startup.</p>
+                                    <div class="course-price">350000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('communication.jpeg');"></div>
+                                <div class="course-content">
+                                    <h3>Communication Skills</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 26
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.9</span>
+                                    </div>
+                                    <p>Develop essential leadership skills to
+                                        inspire teams and drive organizational
+                                        success.</p>
+                                    <div class="course-price">80000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Language Courses Section -->
+            <section id="language" class="page-section section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Language Courses</h2>
+                        <p>Learn new languages and enhance your communication
+                            skills</p>
+                    </div>
+
+                    <div class="category-info">
+                        <h3>About Language Learning</h3>
+                        <p>Learning a new language opens doors to new cultures,
+                            career opportunities, and personal growth. Our
+                            language courses are designed for all levels, from
+                            complete beginners to advanced learners. We offer
+                            courses in popular languages such as Spanish,
+                            French, German, Mandarin, and more.</p>
+                        <p>Our interactive approach focuses on practical
+                            communication skills, including speaking, listening,
+                            reading, and writing. With native-speaking
+                            instructors and immersive learning experiences,
+                            you'll gain confidence to use your new language in
+                            real-world situations.</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('spanish.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Spanish for Beginners</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 18
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.9</span>
+                                    </div>
+                                    <p>Start speaking Spanish from day one with
+                                        our interactive lessons.</p>
+                                    <div class="course-price">280000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('english.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Business English Communication</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 22
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.7</span>
+                                    </div>
+                                    <p>Improve your professional English skills
+                                        for meetings, presentations, and
+                                        business writing.</p>
+                                    <div class="course-price">200000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('french.webp');"></div>
+                                <div class="course-content">
+                                    <h3>French Language and Culture</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 20
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.8</span>
+                                    </div>
+                                    <p>Learn French while exploring the rich
+                                        culture of French-speaking
+                                        countries.</p>
+                                    <div class="course-price">250000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('chinese.png');"></div>
+                                <div class="course-content">
+                                    <h3>Mandarin Chinese for Travelers</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 16
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.6</span>
+                                    </div>
+                                    <p>Learn essential Mandarin phrases and
+                                        cultural tips for traveling in
+                                        China.</p>
+                                    <div class="course-price">350000MMk</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Beauty Salon Courses Section -->
+            <section id="beauty" class="page-section section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Beauty Salon Courses</h2>
+                        <p>Learn the latest skills in makeup, hairstyling, and nail art to shine in the beauty industry.</p>
+                    </div>
+
+                    <div class="category-info">
+                        <h3>About Language Learning</h3>
+                        <p>Our Beauty Salon courses cover everything from professional makeup and hairstyling to advanced nail art. 
+            These courses are perfect for beginners as well as professionals looking to enhance their skills.</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('Makeup-Artist.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Professional Makeup Techniques</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-star-fill"></i> 20
+                                            hours</span>
+                                        <span class="course-rating"><i
+                                                class="bi bi-star-fill"></i>
+                                            4.8</span>
+                                    </div>
+                                    <p>Master foundation, contouring, bridal, and party makeup styles.</p>
+                                    <div class="course-price">400000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('hair.webp');"></div>
+                                <div class="course-content">
+                                    <h3>Hair Styling & Dressing</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 25 hours</span>
+                                        <span class="course-rating"><i class="bi bi-star-fill"></i> 4.7</span>
+                                    </div>
+                                    <p>Learn professional hairstyling, coloring, and care techniques.</p>
+                                    <div class="course-price">200000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img"
+                                    style="background-image: url('nail.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Nail Art & Design</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 15 hours</span>
+                                        <span class="course-rating"><i class="bi bi-star-fill"></i> 4.9</span>
+                                    </div>
+                                    <p>Trendy nail painting, acrylic designs, and creative patterns.</p>
+                                    <div class="course-price">150000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#enrollModal">Enroll
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Handmade Courses Section -->
+            <section id="handmade" class="page-section section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Handmade Courses</h2>
+                        <p>Unleash your creativity with crafts, DIY projects, and handmade design skills.</p>
+                    </div>
+
+                    <div class="category-info">
+                        <h3>About Handmade Learning</h3>
+                        <p>Handmade courses focus on practical creativity including jewelry making, DIY home décor, 
+                        and creative handicrafts that can also turn into a business opportunity.</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img" style="background-image: url('jewerly.webp');"></div>
+                                <div class="course-content">
+                                    <h3>Jewelry Making Basics</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 18 hours</span>
+                                        <span class="course-rating"><i class="bi bi-star-fill"></i> 4.7</span>
+                                    </div>
+                                    <p>Learn to create bracelets, necklaces, and earrings using beads & wires.</p>
+                                    <div class="course-price">60000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3" data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img" style="background-image: url('Diy.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Creative DIY Crafts</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 22 hours</span>
+                                        <span class="course-rating"><i class="bi bi-star-fill"></i> 4.6</span>
+                                    </div>
+                                    <p>Step-by-step lessons for paper crafts, scrapbooking, and home projects.</p>
+                                    <div class="course-price">60000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3" data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img" style="background-image: url('decor.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Handmade Home Décor</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 28 hours</span>
+                                        <span class="course-rating"><i class="bi bi-star-fill"></i> 4.8</span>
+                                    </div>
+                                    <p>Design vases, wall hangings, and sustainable décor with handmade materials.</p>
+                                    <div class="course-price">150000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3" data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Drawing Art Courses Section -->
+            <section id="drawing" class="page-section section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Drawing Art Courses</h2>
+                        <p>Enhance your artistic skills with traditional sketching, painting, and digital art.</p>
+                    </div>
+
+                    <div class="category-info">
+                        <h3>About Drawing Art Learning</h3>
+                        <p>Whether you're a beginner or aspiring professional, our Drawing Art courses 
+                        help you build skills in sketching, portrait drawing, painting, and digital art.</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img" style="background-image: url('sketching.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Sketching for Beginners</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 20 hours</span>
+                                        <span class="course-rating"><i class="bi bi-star-fill"></i> 4.9</span>
+                                    </div>
+                                    <p>Learn basic pencil shading, lines, and proportions step by step.</p>
+                                    <div class="course-price">50000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3" data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img" style="background-image: url('watercolor.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Watercolor & Oil Painting</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 30 hours</span>
+                                        <span class="course-rating"><i class="bi bi-star-fill"></i> 4.7</span>
+                                    </div>
+                                    <p>Explore color mixing, brush techniques, and landscape painting.</p>
+                                    <div class="course-price">120000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3" data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="course-card">
+                                <div class="course-img" style="background-image: url('illustration.jpg');"></div>
+                                <div class="course-content">
+                                    <h3>Digital Drawing & Illustration</h3>
+                                    <div class="course-meta">
+                                        <span><i class="bi bi-clock"></i> 35 hours</span>
+                                        <span class="course-rating"><i class="bi bi-star-fill"></i> 4.8</span>
+                                    </div>
+                                    <p>Create amazing digital art using tools like Photoshop and Procreate.</p>
+                                    <div class="course-price">100000MMK</div>
+                                    <button class="btn btn-teal w-100 mt-3" data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Us Section -->
+            <section id="about" class="page-section section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>About Us</h2>
+                        <p>Learners' Choice is a comprehensive advertising platform dedicated to showcasing the best educational courses available today.</p>
+                    </div>
+
+                    <div class="vision-mission">
+                <div class="vision">
+                    <h3><i class="fas fa-lightbulb"></i>Our Vision</h3>
+                    <p>We envision a world where quality education is accessible to everyone, regardless of location or background.</p>
+                    <ul>
+                        <li>Discover courses that align with passions and career goals</li>
+                        <li>Access learning opportunities from top institutions</li>
+                        <li>Transform lives through continuous education</li>
+                        <li>Build communities around shared learning experiences</li>
+                    </ul>
+                </div>
+
+                    <div class="mission">
+                    <h3><i class="fas fa-bullseye"></i>Our Mission</h3>
+                    <p>Our mission is to connect learners with exceptional educational opportunities while helping course providers reach their target audiences.</p>
+                    <ul>
+                        <li>Curating Excellence: Featuring only high-quality courses</li>
+                        <li>Enhancing Discoverability: Intuitive search and recommendations</li>
+                        <li>Supporting Learners: Powerful marketing tools</li>
+                        <li>Building a Network of Learners: Connecting learners and educators</li>
+                        <li>Driving Innovation: Continuously improving our platform</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="section" style="background-color: #f1f8ff;">
+            <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Learners' Choice?</h2>
+                <p>We provide the best platform for both learners and course providers</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Comprehensive Selection</h3>
+                    <p>Features courses from universities, online platforms, bootcamps, and independent instructors across diverse disciplines.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>Our rigorous vetting process ensures all advertised courses meet high standards of quality and relevance.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>Personalized Experience</h3>
+                    <p>Advanced algorithms match learners with courses that fit their unique needs, goals, and learning preferences.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Trusted Reviews</h3>
+                    <p>Authentic feedback from real learners helps others make informed decisions about their educational journey.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Reach</h3>
+                    <p>Connecting learners and educators from around the world in one unified platform without geographical barriers.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Growth Opportunities</h3>
+                    <p>Empowering both learners to advance their careers and educators to expand their reach and impact.</p>
+                </div>
+                </div>
+            </section>
+            </section>
+
+            <!-- Contact Us Section -->
+            <section id="contact" class="page-section section">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Contact Us</h2>
                         </div>
 
                         <div class="row g-4">
-
-                            <div class="col-md-4">
-
-                                <div class="category-card"
-
-                                    onclick="showSection('it')">
-
-                                    <div class="category-img"
-
-                                        style="background-image: url('Information-Technology-2.jpeg');">
-
-
-
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body p-4">
+                                        <h3 class="card-title mb-4"
+                                            style="color: var(--primary-teal);">Send
+                                            Us a Message</h3>
+                                        <form id="contactForm">
+                                            <div class="mb-3">
+                                                <label for="name"
+                                                    class="form-label">Full
+                                                    Name</label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="name" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="email"
+                                                    class="form-label">Email
+                                                    Address</label>
+                                                <input type="email"
+                                                    class="form-control"
+                                                    id="email" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="subject"
+                                                    class="form-label">Subject</label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="subject" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="message"
+                                                    class="form-label">Message</label>
+                                                <textarea class="form-control"
+                                                    id="message" rows="4"
+                                                    required></textarea>
+                                            </div>
+                                            <button type="submit"
+                                                class="btn btn-teal w-100">Send
+                                                Message</button>
+                                        </form>
                                     </div>
-
-                                    <div class="category-content">
-
-                                        <h3>Information Technology</h3>
-
-                                        <p>Master programming, cybersecurity,
-
-                                            cloud computing, and more with our
-
-                                            IT courses.</p>
-
-                                        <a href="#"
-
-                                            class="btn btn-teal w-100">Explore
-
-                                            IT Courses</a>
-
-                                    </div>
-
                                 </div>
-
                             </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body p-4">
+                                        <h3 class="card-title mb-4"
+                                            style="color: var(--primary-teal);">Get
+                                            In Touch</h3>
+                                        <p class="mb-4">Have questions about our
+                                            courses or need help with your
+                                            account? Our support team is here to
+                                            help.</p>
 
-                            <div class="col-md-4">
+                                        <div class="mb-4">
+                                            <div
+                                                class="d-flex align-items-center mb-3">
+                                                <i
+                                                    class="bi bi-geo-alt-fill text-teal me-3 fs-4"></i>
+                                                <div>16/Kan Street,Taungoo</div>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center mb-3">
+                                                <i
+                                                    class="bi bi-telephone-fill text-teal me-3 fs-4"></i>
+                                                <div>+959683050232</div>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center">
+                                                <i
+                                                    class="bi bi-envelope-fill text-teal me-3 fs-4"></i>
+                                                <div>bay80313@gmail.com</div>
+                                            </div>
+                                        </div>
 
-                                <div class="category-card"
+                                        <div>
+                                            <h4 class="mb-3">Follow Us</h4>
+                                            <div class="social-links">
+                                                <a href="#"><i
+                                                        class="bi bi-facebook"></i></a>
+                                                <a href="#"><i
+                                                        class="bi bi-twitter"></i></a>
+                                                <a href="#"><i
+                                                        class="bi bi-instagram"></i></a>
+                                                <a href="#"><i
+                                                        class="bi bi-linkedin"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
 
-                                    onclick="showSection('business')">
+            <!-- Footer section-->
 
-                                    <div class="category-img"
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-column">
+                        <h3>Courses</h3>
+                        <ul>
+                            <li><a href="#" onclick="showSection('it')">IT</a></li>
+                            <li><a href="#" onclick="showSection('language')">Languages</a></li>
+                            <li><a href="#" onclick="showSection('business')">Business</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>About Us</h3>
+                        <ul>
+                            <li><a href="#" onclick="showSection('about')">Our Vision</a></li>
+                            <li><a href="#" onclick="showSection('about')">Our Mission</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#"
+                                    onclick="showSection('contact')">Contact
+                                    Us</a></li>
+                            <li><a href="#">Enrollment Help</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact</h3>
+                        <p>Email: bay80313@gmail.com</p>
+                        <p>Phone: +959683050232</p>
+                        <div class="social-icons">
+                            <a href="https://facebook.com" target="_blank"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://linkedin.com" target="_blank"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="https://youtube.com" target="_blank"><i
+                                    class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2025 Learners' Choice. All Rights Reserved.</p>
+                </div>
+            </footer>
 
-                                        style="background-image: url('business.avif');"></div>
+            <!-- Login Modal -->
+            <div class="modal fade" id="loginModal" tabindex="-1"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-teal text-white">
+                            <h5 class="modal-title">Login to Your Account</h5>
+                            <button type="button"
+                                class="btn-close btn-close-white"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="loginEmail"
+                                        class="form-label">Email Address</label>
+                                    <input type="email" class="form-control"
+                                        id="loginEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword"
+                                        class="form-label">Password</label>
+                                    <input type="password" class="form-control"
+                                        id="loginPassword" required>
+                                </div>
+                                <div
+                                    class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                            type="checkbox" id="rememberMe">
+                                        <label class="form-check-label"
+                                            for="rememberMe">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                    <a href="#" class="text-teal">Forgot
+                                        Password?</a>
+                                </div>
+                                <button type="submit"
+                                    class="btn btn-teal w-100">Login</button>
+                            </form>
+                            <div class="text-center mt-3">
+                                <p>Don't have an account? <a href="#"
+                                        class="text-teal" data-bs-toggle="modal"
+                                        data-bs-target="#signupModal"
+                                        data-bs-dismiss="modal">Sign Up</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                                    <div class="category-content">
+            <!-- Sign Up Modal -->
+            <div class="modal fade" id="signupModal" tabindex="-1"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-teal text-white">
+                            <h5 class="modal-title">Create Your Account</h5>
+                            <button type="button"
+                                class="btn-close btn-close-white"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="signupForm">
+                                <div class="mb-3">
+                                    <label for="signupName"
+                                        class="form-label">Full Name</label>
+                                    <input type="text" class="form-control"
+                                        id="signupName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signupEmail"
+                                        class="form-label">Email Address</label>
+                                    <input type="email" class="form-control"
+                                        id="signupEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signupPassword"
+                                        class="form-label">Password</label>
+                                    <input type="password" class="form-control"
+                                        id="signupPassword" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="confirmPassword"
+                                        class="form-label">Confirm
+                                        Password</label>
+                                    <input type="password" class="form-control"
+                                        id="confirmPassword" required>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                            type="checkbox" id="agreeTerms"
+                                            required>
+                                        <label class="form-check-label"
+                                            for="agreeTerms">
+                                            I agree to the <a href="#"
+                                                class="text-teal">Terms of
+                                                Service</a> and <a href="#"
+                                                class="text-teal">Privacy
+                                                Policy</a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="btn btn-teal w-100">Sign Up</button>
+                            </form>
+                            <div class="text-center mt-3">
+                                <p>Already have an account? <a href="#"
+                                        class="text-teal" data-bs-toggle="modal"
+                                        data-bs-target="#loginModal"
+                                        data-bs-dismiss="modal">Login</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                                        <h3>Business</h3>
+            <!-- Enroll Modal -->
+            <div class="modal fade" id="enrollModal" tabindex="-1"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-teal text-white">
+                            <h5 class="modal-title">Enroll in Course</h5>
+                            <button type="button"
+                                class="btn-close btn-close-white"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="enrollForm">
+                                <div class="mb-3">
+                                    <label for="enrollName"
+                                        class="form-label">Full Name</label>
+                                    <input type="text" class="form-control"
+                                        id="enrollName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="enrollEmail"
+                                        class="form-label">Email Address</label>
+                                    <input type="email" class="form-control"
+                                        id="enrollEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="enrollPhone"
+                                        class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control"
+                                        id="enrollPhone" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="enrollCourse"
+                                        class="form-label">Course</label>
+                                    <select class="form-select"
+                                        id="enrollCourse" required>
+                                        <option value selected disabled>Select a
+                                            course</option>
+                                        <option value="web-dev">Complete Web
+                                            Development Bootcamp</option>
+                                        <option
+                                            value="cybersecurity">Cybersecurity
+                                            Fundamentals</option>
+                                        <option value="aws">Cloud Computing with
+                                            AWS</option>
+                                        <option value="data-science">Data
+                                            Science with Python</option>
+                                        <option
+                                            value="digital-marketing">Digital
+                                            Marketing Masterclass</option>
+                                        <option value="financial-mgmt">Financial
+                                            Management for Non-Financial
+                                            Managers</option>
+                                        <option
+                                            value="entrepreneurship">Entrepreneurship:
+                                            From Idea to Launch</option>
+                                        <option value="leadership">Leadership
+                                            and Management Skills</option>
+                                        <option value="spanish">Spanish for
+                                            Beginners</option>
+                                        <option
+                                            value="business-english">Business
+                                            English Communication</option>
+                                        <option value="french">French Language
+                                            and Culture</option>
+                                        <option value="mandarin">Mandarin
+                                            Chinese for Travelers</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="enrollMessage"
+                                        class="form-label">Message
+                                        (Optional)</label>
+                                    <textarea class="form-control"
+                                        id="enrollMessage" rows="3"
+                                        placeholder="Tell us why you're interested in this course..."></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="btn btn-teal w-100">Enroll
+                                    Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                                        <p>Develop leadership, marketing,
+            <!-- Bootstrap JS Bundle with Popper -->
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-               
+            <!-- Custom JavaScript -->
+            <script>
+        // Define all courses for search functionality
+        const allCourses = [
+            {
+                title: "Complete Web Development Bootcamp",
+                description: "Learn HTML, CSS, JavaScript, React, Node, and more in this comprehensive course.",
+                category: "it",
+                image: "web.jpg",
+                duration: "42 hours",
+                rating: 4.8,
+                price: "400000MMK"
+            },
+            {
+                title: "Cybersecurity Fundamentals",
+                description: "Learn essential cybersecurity concepts, tools, and techniques to protect systems and data.",
+                category: "it",
+                image: "cybersecurity-fundamentals.jpg",
+                duration: "36 hours",
+                rating: 4.7,
+                price: "300000MMK"
+            },
+            {
+                title: "Cloud Computing with AWS",
+                description: "Master Amazon Web Services and become a certified cloud solutions architect.",
+                category: "it",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                duration: "32 hours",
+                rating: 4.9,
+                price: "200000MMK"
+            },
+            {
+                title: "Data Science with Python",
+                description: "Learn data analysis, visualization, machine learning, and deep learning with Python.",
+                category: "it",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                duration: "48 hours",
+                rating: 4.8,
+                price: "120000MMK"
+            },
+            {
+                title: "Digital Marketing Masterclass",
+                description: "Master SEO, social media marketing, PPC, and email marketing strategies.",
+                category: "business",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                duration: "28 hours",
+                rating: 4.7,
+                price: "220000MMK"
+            },
+            {
+                title: "Financial Management for Non-Financial Managers",
+                description: "Learn to read financial statements, manage budgets, and make informed financial decisions.",
+                category: "business",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                duration: "24 hours",
+                rating: 4.6,
+                price: "250000MMK"
+            },
+            {
+                title: "Entrepreneurship: From Idea to Launch",
+                description: "Learn how to validate your business idea, create a business plan, and launch your startup.",
+                category: "business",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                duration: "30 hours",
+                rating: 4.8,
+                price: "350000MMK"
+            },
+            {
+                title: "Communication Skills",
+                description: "Develop essential leadership skills to inspire teams and drive organizational success.",
+                category: "business",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                duration: "26 hours",
+                rating: 4.9,
+                price: "80000MMK"
+            },
+            {
+                title: "Spanish for Beginners",
+                description: "Start speaking Spanish from day one with our interactive lessons.",
+                category: "language",
+                image: "lan.jpg",
+                duration: "18 hours",
+                rating: 4.9,
+                price: "280000MMK"
+            },
+            {
+                title: "Business English Communication",
+                description: "Improve your professional English skills for meetings, presentations, and business writing.",
+                category: "language",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                duration: "22 hours",
+                rating: 4.7,
+                price: "200000MMK"
+            },
+            {
+                title: "French Language and Culture",
+                description: "Learn French while exploring the rich culture of French-speaking countries.",
+                category: "language",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                duration: "20 hours",
+                rating: 4.8,
+                price: "250000MMK"
+            },
+            {
+                title: "Mandarin Chinese for Travelers",
+                description: "Learn essential Mandarin phrases and cultural tips for traveling in China.",
+                category: "language",
+                image: "Information-Technology-2.jpeg",
+                duration: "16 hours",
+                rating: 4.6,
+                price: "350000MMK"
+            },
+            {
+                title: "Professional Makeup Techniques",
+                description: "Master foundation, contouring, bridal, and party makeup styles.",
+                category: "beauty",
+                image: "lan.jpg",
+                duration: "20 hours",
+                rating: 4.8,
+                price: "400000MMK"
+            },
+            {
+                title: "Hair Styling & Dressing",
+                description: "Learn professional hairstyling, coloring, and care techniques.",
+                category: "beauty",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                duration: "25 hours",
+                rating: 4.7,
+                price: "200000MMK"
+            },
+            {
+                title: "Nail Art & Design",
+                description: "Trendy nail painting, acrylic designs, and creative patterns.",
+                category: "beauty",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                duration: "15 hours",
+                rating: 4.9,
+                price: "150000MMK"
+            },
+            {
+                title: "Jewelry Making Basics",
+                description: "Learn to create bracelets, necklaces, and earrings using beads & wires.",
+                category: "handmade",
+                image: "jewelry.jpg",
+                duration: "18 hours",
+                rating: 4.7,
+                price: "60000MMK"
+            },
+            {
+                title: "Creative DIY Crafts",
+                description: "Step-by-step lessons for paper crafts, scrapbooking, and home projects.",
+                category: "handmade",
+                image: "craft.jpg",
+                duration: "22 hours",
+                rating: 4.6,
+                price: "60000MMK"
+            },
+            {
+                title: "Handmade Home Décor",
+                description: "Design vases, wall hangings, and sustainable décor with handmade materials.",
+                category: "handmade",
+                image: "decor.jpg",
+                duration: "28 hours",
+                rating: 4.8,
+                price: "150000MMK"
+            },
+            {
+                title: "Sketching for Beginners",
+                description: "Learn basic pencil shading, lines, and proportions step by step.",
+                category: "drawing",
+                image: "sketch.jpg",
+                duration: "20 hours",
+                rating: 4.9,
+                price: "50000MMK"
+            },
+            {
+                title: "Watercolor & Oil Painting",
+                description: "Explore color mixing, brush techniques, and landscape painting.",
+                category: "drawing",
+                image: "painting.jpg",
+                duration: "30 hours",
+                rating: 4.7,
+                price: "120000MMK"
+            },
+            {
+                title: "Digital Drawing & Illustration",
+                description: "Create amazing digital art using tools like Photoshop and Procreate.",
+                category: "drawing",
+                image: "digitalart.jpg",
+                duration: "35 hours",
+                rating: 4.8,
+                price: "100000MMK"
+            }
+        ];
+
+        // Show specific section
+        function showSection(sectionId) {
+            
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+           
+            document.getElementById(sectionId).classList.add('active');
+            
+            
+            window.scrollTo(0, 0);
+            
+           
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (navbarCollapse.classList.contains('show')) {
+                navbarCollapse.classList.remove('show');
+            }
+        }
+
+        // Handle search form submission
+        function handleSearch(event) {
+            event.preventDefault();
+            const searchInput = document.getElementById('search-input');
+            const query = searchInput.value.trim().toLowerCase();
+            
+            if (query) {
+                performSearch(query);
+            }
+        }
+
+        // Perform search across all courses
+        function performSearch(query) {
+            // Show search results section
+            showSection('search-results');
+            
+            // Filter courses based on query
+            const results = allCourses.filter(course => 
+                course.title.toLowerCase().includes(query) || 
+                course.description.toLowerCase().includes(query) ||
+                course.category.toLowerCase().includes(query)
+            );
+            
+            // Update search results summary
+            const resultsSummary = document.getElementById('search-results-summary');
+            resultsSummary.textContent = results.length > 0 
+                ? `Found ${results.length} course(s) matching "${query}"` 
+                : `No courses found matching "${query}"`;
+            
+            // Display results
+            const resultsContainer = document.getElementById('search-results-container');
+            resultsContainer.innerHTML = '';
+            
+            if (results.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <i class="bi bi-search display-1 text-muted"></i>
+                        <h3 class="mt-3">No courses found</h3>
+                        <p class="text-muted">Try different keywords or browse our categories</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            results.forEach(course => {
+                const courseCard = document.createElement('div');
+                courseCard.className = 'col-md-4';
+                courseCard.innerHTML = `
+                    <div class="course-card">
+                        <div class="course-img" style="background-image: url('${course.image}');"></div>
+                        <div class="course-content">
+                            <h3>${course.title}</h3>
+                            <div class="course-meta">
+                                <span><i class="bi bi-clock"></i> ${course.duration}</span>
+                                <span class="course-rating"><i class="bi bi-star-fill"></i> ${course.rating}</span>
+                            </div>
+                            <p>${course.description}</p>
+                            <div class="course-price">${course.price}</div>
+                            <button class="btn btn-teal w-100 mt-3" data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</button>
+                        </div>
+                    </div>
+                `;
+                resultsContainer.appendChild(courseCard);
+            });
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login functionality would be implemented here. This is a demo.');
+            bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Sign up functionality would be implemented here. This is a demo.');
+            bootstrap.Modal.getInstance(document.getElementById('signupModal')).hide();
+        });
+
+        document.getElementById('enrollForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Enrollment functionality would be implemented here. This is a demo.');
+            bootstrap.Modal.getInstance(document.getElementById('enrollModal')).hide();
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+        </body>
+    </html>
